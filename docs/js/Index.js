@@ -34,8 +34,8 @@ const Index = React.createClass({
             </div>
 
             <div className="amt-intro">
-              <h1>Amaze UI DingTalk</h1>
-              <h2>Amaze UI 组件库钉钉定制版</h2>
+              <h1>Amaze UI for 钉钉 移动版</h1>
+              <span className="am-badge am-badge-danger am-radius">React</span>
               <p className="amt-version">当前版本：v{__VERSION__} <span>|</span> <a href="https://github.com/amazeui/amazeui-dingtalk/blob/master/CHANGELOG.md" target="_blank">变更日志</a></p>
               <div className="amt-ghbtns">
                 <iframe
@@ -63,8 +63,18 @@ const Index = React.createClass({
             </div>
           </div>
         </div>
+        <div className="amt-description">
+          <div className="am-g am-g-fixed">
+            <h1>Amaze UI for 钉钉是什么？</h1>
+            <p>Amaze UI for 钉钉是由前端开源框架Amaze UI开发团队、阿里钉钉开发团队联合出品，为企业开发者提供与钉钉设计风格完全统一的开源前端框架，以下简称“钉钉UI”。</p>
+            <p>
+“钉钉UI”是由钉钉团队提供企业开发者组件需求、统一设计风格，由Amaze UI团队进行开发、维护的开源前端框架。目前第一个版本为基于React.js的web移动端组件库，陆续将出品基于jQuery.js的移动端组件库、跨屏组件库等内容。以满足不同企业开发者在实际业务中的需求。
+            </p>
+          </div>
+        </div>
         <div className="amt-features">
           <div className="am-g am-g-fixed">
+            <hr/>
             <div className="am-u-md-6">
               <span className="am-icon-mobile" />
               <h2>专属于移动</h2>

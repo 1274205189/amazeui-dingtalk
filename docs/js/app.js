@@ -62,7 +62,7 @@ const Header = React.createClass({
       <header className="am-topbar am-topbar-inverse amt-header">
         <h1 className="am-topbar-brand">
           <a href="/" className="am-text-ir">Amaze UI Touch</a>
-          <span className="am-badge am-badge-danger">Touch</span>
+          <span className="am-badge am-badge-danger">DINGDING</span>
         </h1>
 
         <a
