@@ -1,0 +1,76 @@
+// Amaze UI DingTalk: Breadcrumb
+//
+// =============================================================================
+@import "../env";
+
+// Output
+// -----------------------------------------------------------------------------
+
+.#{$breadcrumb-prefix} {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: $breadcrumb-padding;
+  list-style: none;
+  font-size: $breadcrumb-fon-size;
+  line-height: $breadcrumb-height;
+
+  a {
+    display: block;
+    color: $breadcrumb-color;
+  }
+}
+
+.#{$breadcrumb-prefix}-item {
+  $item: &;
+
+  display: flex;
+  align-items: center;
+
+  // active
+  &.#{$namespace}active {
+    color: $breadcrumb-active-color;
+  }
+
+  & + & {
+    &:before {
+      margin: $breadcrumb-separator-margin;
+      color: $breadcrumb-separator-color;
+    }
+  }
+
+  .#{$breadcrumb-prefix}-chevron & {
+    & + #{$item} {
+      &:before {
+        display: block;
+        content: "";
+        @include square(rem-calc(9));
+        overflow: hidden;
+        border-top: 1px solid $breadcrumb-separator-color;
+        border-right: 1px solid $breadcrumb-separator-color;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  .#{$breadcrumb-prefix}-angle & {
+    & + #{$item} {
+      &:before {
+        content: "\00bb"; // `»`
+      }
+    }
+  }
+
+  .#{$breadcrumb-prefix}-slash & {
+    & + #{$item} {
+      &:before {
+        content: "\002f"; // `/`
+      }
+    }
+  }
+
+  // nested Icon
+  .#{$icon-prefix} {
+    font-size: $breadcrumb-fon-size;
+  }
+}

@@ -1,0 +1,19 @@
+// Amaze UI DingTalk: Text
+// =============================================================================
+@import "../env";
+
+// Output
+// -----------------------------------------------------------------------------
+
+$text-sizes: (6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 22, 24, 26, 28, 32, 40, 48, 52) !default;
+
+@each $size in $text-sizes {
+  .#{$namespace}text-#{$size} {
+    font-size: rem-calc($size);
+
+    // the limit can be changed in Chrome's `preference` -> `custom fonts style`.
+    //@if ($size < 12) {
+    //  transform: scale($size/12);
+    //}
+  }
+}

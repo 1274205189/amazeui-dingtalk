@@ -1,0 +1,12 @@
+.DS_Store
+.idea
+.sass-cache
+*.log*
+node_modules
+
+# server rending `amazeui-touch` module mapping
+!kitchen-sink/node_modules/
+# /dist
+/www
+/lib
+dist

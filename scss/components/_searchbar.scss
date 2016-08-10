@@ -1,0 +1,127 @@
+// Amaze UI DingTalk: SearchBar
+// =============================================================================
+
+@import "../env";
+
+$searchbar-active: #{$searchbar-prefix}-active;
+
+// Output
+// -----------------------------------------------------------------------------
+.#{$searchbar-prefix} {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: $searchbar-height;
+  padding: $searchbar-padding;
+  overflow: hidden;
+  background-color: $searchbar-background-color;
+}
+
+// searchbar element: input container
+.#{$searchbar-prefix}-input {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: rem-calc(28);
+  transition: all .3s;
+
+  .#{$searchbar-active} & {
+    margin-right: $searchbar-reset-width;
+    justify-content: flex-start;
+  }
+
+  .#{$icon-prefix} {
+    z-index: 15;
+    font-size: rem-calc(16);
+  }
+
+  input[type="search"] {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0 rem-calc(28px);
+    border: none;
+    border-radius: $global-radius;
+    background: #fff;
+    font-size: rem-calc(14);
+    text-align: center;
+
+    .#{$searchbar-active} &,
+    &:focus {
+      text-align: left;
+    }
+
+    .#{$searchbar-active} & {
+      right: $searchbar-reset-width;
+    }
+  }
+}
+
+// searchbar element: reset button
+.#{$searchbar-prefix}-reset {
+  position: absolute;
+  top: 50%;
+  right: get-side($searchbar-padding, right);
+  flex-shrink: 0;
+  display: block;
+  width: $searchbar-reset-width;
+  padding: 0 0 0 rem-calc(8);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border: none;
+  background: none;
+  text-align: center;
+  font-size: rem-calc(17);
+  font-weight: 500;
+  color: $global-primary;
+  opacity: 0;
+  transform: translate(100%, -50%);
+  transition: all .3s;
+
+  .#{$searchbar-active} & {
+    // position: relative;
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
+
+// searchbar element: placeholder, not visible
+.#{$searchbar-prefix}-placeholder {
+  position: relative;
+  z-index: 0;
+  padding: 0 rem-calc(10);
+  opacity: 0;
+}
+
+// searchbar element: search icon
+.#{$searchbar-prefix}-icon-search {
+  position: relative;
+  padding: rem-calc(6);
+  color: $gray-light;
+}
+
+// searchbar element: clear icon
+.#{$searchbar-prefix}-icon-clear {
+  position: absolute;
+  top: rem-calc(6);
+  right: rem-calc(6);
+  opacity: 0;
+  @include square(rem-calc(16));
+  border-radius: 50%;
+  background: $gray-light;
+  color: #fff;
+  cursor: pointer;
+  transition: opacity .15s;
+
+  &.has-value {
+    opacity: 1;
+  }
+}

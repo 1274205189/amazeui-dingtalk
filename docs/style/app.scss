@@ -1,0 +1,22 @@
+// Style for Amaze UI DingTalk Website
+
+// Variables
+@import "../../scss/helper/functions";
+@import "../../scss/variables";
+$assets: "http://s.amazeui.org/";
+$banner-bg: #008cee;
+$bp-md-up: quote('(min-width: 768px)');
+$bp-lg-up: quote('(min-width: 1024px)');
+
+.am-topbar {
+  background: $banner-bg;
+  border-bottom-color: darken($banner-bg, 5);
+}
+
+// Modules
+@import "prism";
+@import "prism-line-numbers";
+@import "doc-common";
+@import "doc-index";
+@import "doc-sidebar";
+@import "doc-content";

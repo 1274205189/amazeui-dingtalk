@@ -1,0 +1,42 @@
+// Amaze UI DingTalk: Avatar
+//
+// =============================================================================
+
+@import "../env";
+
+// Output
+// -----------------------------------------------------------------------------
+
+@mixin avatar-size($size: $avatar-size, $font-size: $avatar-font-size) {
+  @include square($size);
+  font-size: $font-size;
+  line-height: $size;
+}
+
+.#{$avatar-prefix} {
+  display: inline-block;
+  border-radius: $avatar-border-radius;
+  color: #fff;
+  text-align: center;
+
+  @include avatar-size();
+
+  img {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: $avatar-border-radius;
+  }
+}
+
+
+// modifiers - sizes
+// -----------------------------------------------------------------------------
+@each $avatar-size in $avatar-sizes {
+  .#{$avatar-prefix}-#{map_get($avatar-size, size)} {
+    @include avatar-size(
+        rem-calc(map_get($avatar-size, 'size')),
+        rem-calc(map_get($avatar-size, font-size))
+    );
+  }
+}

@@ -1,0 +1,27 @@
+// Amaze UI DingTalk: Gallery
+// =============================================================================
+@import "../env";
+
+// Output
+// -----------------------------------------------------------------------------
+.#{$gallery-prefix} {
+}
+
+.#{$gallery-prefix}-title {
+  margin: rem-calc(5) 0;
+  font-size: $gallery-title-fon-size;
+  font-weight: normal;
+
+  @extend %text-truncate;
+}
+
+.#{$gallery-prefix}-meta {
+  font-size: $gallery-meta-fon-size;
+  color: $gallery-meta-color;
+}
+
+// Modifier: imgBordered
+
+.#{$gallery-prefix}-imgbordered {
+
+}
