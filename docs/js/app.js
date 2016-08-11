@@ -74,14 +74,32 @@ const Header = React.createClass({
 
         <div className={`am-collapse am-topbar-collapse ${active}`}>
           <ul className="am-nav am-nav-pills am-topbar-nav am-topbar-left">
-            {this.renderLink('docs/getting-started', '开发文档')}
+            {this.renderLink('docs/getting-started', '开始使用')}
+            <li>
+              <a
+                href="#"
+                target="_blank"
+                onClick={this.onMatchClick}
+              >
+                jQuery版
+              </a>
+            </li>
+            <li>
+              <a
+                href="http://ask.amazeui.org/"
+                target="_blank"
+                onClick={this.onMatchClick}
+              >
+                官方论坛
+              </a>
+            </li>
             <li>
               <a
                 href="http://amazeui.org/"
                 target="_blank"
                 onClick={this.onMatchClick}
               >
-                Amaze UI Web
+                Amaze UI 主页
               </a>
             </li>
           </ul>

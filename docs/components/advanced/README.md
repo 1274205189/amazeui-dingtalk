@@ -2,7 +2,7 @@
 
 ## 模块化引用
 
-从 `1.0.0-rc.1` 开始，Amaze UI DingTalk（下称 AMDT） 将样式依赖添加到了 JS 文件中（[fcb3538](https://github.com/amazeui/amazeui-dingtalk/commit/648fd17099a794cc62d0fc6be0029673a286fb9c)），以便进行按需打包等更精细化的管理、使用。
+从 `1.0.0-rc.1` 开始，钉钉UI（下称 AMDT） 将样式依赖添加到了 JS 文件中（[fcb3538](https://github.com/amazeui/amazeui-dingtalk/commit/648fd17099a794cc62d0fc6be0029673a286fb9c)），以便进行按需打包等更精细化的管理、使用。
 
 ```javascript
 // Button.js

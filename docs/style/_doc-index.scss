@@ -106,8 +106,8 @@
   margin: 1em 0;
 }
 
+// description
 .amt-description {
-
 
   h1 {
     margin-top: 3.5em;
@@ -146,6 +146,26 @@
     .am-u-md-6 + .am-u-md-6 {
       margin-top: 30px;
     }
+  }
+}
+
+// subscribe section
+.amt-subscribe {
+  background: #38adff;
+  height:3em;
+  line-height:3em;
+  color:#fff;
+}
+
+
+// about-us section
+.amt-about {
+  margin-top: 3em;
+  margin-bottom: 3em;
+  h1 {
+    // margin-top: 2em;
+    margin-bottom: 2em;
+    text-align:center;
   }
 }
 

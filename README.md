@@ -1,4 +1,4 @@
-# Amaze UI DingTalk
+# 钉钉UI
 
 基于 React.js 的移动端 Web UI 组件库。
 
@@ -13,7 +13,7 @@
 
 ### 专属于移动
 
-Amaze UI DingTalk 专为移动打造，在技术实现、交互设计上只考虑主流移动设备，保证代码轻、性能高。
+钉钉UI 专为移动打造，在技术实现、交互设计上只考虑主流移动设备，保证代码轻、性能高。
 
 ### 专注于 UI
 
@@ -58,7 +58,7 @@ Amaze UI DingTalk 专为移动打造，在技术实现、交互设计上只考�
 
       renderHello() {
         return this.state.said ? (
-          <p>Hello World! Welcome to Amaze UI DingTalk.</p>
+          <p>Hello World! Welcome to 钉钉UI.</p>
         ) : null;
       }
 
@@ -84,7 +84,7 @@ Amaze UI DingTalk 专为移动打造，在技术实现、交互设计上只考�
     ReactDOM.render(<App />, document.getElementById('root'));
     ```
 
-ES2015/JSX 编译参见 [Amaze UI DingTalk Starter Kit](https://github.com/amazeui/amt-starter-kit)。
+ES2015/JSX 编译参见 [钉钉UI Starter Kit](https://github.com/amazeui/amt-starter-kit)。
 
 
 

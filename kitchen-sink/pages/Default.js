@@ -60,11 +60,11 @@ const Default = React.createClass({
       <View id="app-index">
         <NavBar
           amStyle="primary"
-          title="Amaze UI DingTalk"
+          title="钉钉UI"
         />
         <Container scrollable>
           <Group
-            header="Amaze UI DingTalk Components"
+            header="钉钉UI Components"
             noPadded
           >
             <List>

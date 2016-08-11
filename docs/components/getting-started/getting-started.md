@@ -1,5 +1,12 @@
 # 开始使用
 
+# 统一说明
+
+Amaze UI for 钉钉是由前端开源框架Amaze UI开发团队、阿里钉钉开发团队联合出品。
+
+- 项目对外命名： Amaze UI for 钉钉， 简称： 钉钉UI
+- npm包命名、代码文件命名： amazeui-dingtalk
+
 ## 准备工作
 
 ### 开发环境配置
@@ -13,13 +20,13 @@
 
 现在开源社区的前端资源数不胜数，但不意味着一个对 HTML、CSS、JavaScript 一无所知或知之甚少的人能有效、高效地利用这些资源达成目标。对于初学者，个人并不建议刚入门就使用框架（库），只知其然时就扎进去，不如夯实基础，到知其所以然以后再开始使用，这样对个人提高更有裨益。请记住，库（框架）不是模板，能为开发节省时间，但不能代替基础知识学习。
 
-使用 Amaze UI DingTalk 之前，除了熟悉 HTML、CSS、JavaScript 以外，还应了解相关的工具和项目。
+使用 钉钉UI 之前，除了熟悉 HTML、CSS、JavaScript 以外，还应了解相关的工具和项目。
 
 **相关项目**：
 
 - [React 官网](http://facebook.github.io/react/)（v15.0+）
 - [React Router](https://github.com/rackt/react-router/)（可选）
-- [Sass](http://sass-lang.com/)：Amaze UI DingTalk 样式使用 Sass 编写，如需深入二次开发，应当知道如何使用 Sass。
+- [Sass](http://sass-lang.com/)：钉钉UI 样式使用 Sass 编写，如需深入二次开发，应当知道如何使用 Sass。
 
 **构建工具：**
 
@@ -36,13 +43,13 @@
 
 - [Flexbox](http://caniuse.com/#feat=flexbox)
 
-  Amaze UI DingTalk 完全基于 flexbox 布局。由于[旧版规范](http://www.w3.org/TR/2009/WD-css3-flexbox-20090723/)中没有 `flex-shrink`、`flex-basis`、`flex-wrap` 对应的属性，导致只支持旧版规范的浏览器无法正常渲染布局，暂时通过回退方式处理，在 Android UC 上测试通过，有待进行更多测试 :( 。
+  钉钉UI 完全基于 flexbox 布局。由于[旧版规范](http://www.w3.org/TR/2009/WD-css3-flexbox-20090723/)中没有 `flex-shrink`、`flex-basis`、`flex-wrap` 对应的属性，导致只支持旧版规范的浏览器无法正常渲染布局，暂时通过回退方式处理，在 Android UC 上测试通过，有待进行更多测试 :( 。
 - [CSS3 Transitions](http://caniuse.com/#feat=css-transitions)
 - [CSS Animation](http://caniuse.com/#feat=css-animation)
 
 ### JavaScript
 
-- ES5: Amaze UI DingTalk 基于 ES2015 编写，使用 Babel.js 转换为 ES5；
+- ES5: 钉钉UI 基于 ES2015 编写，使用 Babel.js 转换为 ES5；
 - React.js: `15.x` 兼容至 IE9。
 
 ## 编写页面
@@ -51,7 +58,7 @@
 
 如果你有 React、npm 使用经验，则可以按熟悉的套路来。
 
-### 安装 Amaze UI DingTalk
+### 安装 amazeui-dingtalk
 
 ```bash
 npm install --save-dev amazeui-dingtalk
@@ -93,7 +100,7 @@ https://npmcdn.com/amazeui-dingtalk@1.0.0-beta.3/dist/amazeui-dingtalk.min.css
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Amaze UI DingTalk</title>
+  <title>钉钉UI</title>
   <meta name="renderer" content="webkit">
   <!-- No Baidu Siteapp-->
   <meta http-equiv="Cache-Control" content="no-siteapp">
@@ -128,9 +135,9 @@ ReactDOM.render(<Button>Hello World</Button>, document.getElementById('root'));
 
 ### 全局方式引用
 
-如果基于使用公共 CDN 或者维护方便等原因考虑，不想把 Amaze UI DingTalk 打包到项目文件中，可以以全局方式引用，即在 HTML 中引入 `amazeui-dingtalk.min.js` 文件，然后以 **`AMUIDingTalk`** 这个全局变量访问组件。
+如果基于使用公共 CDN 或者维护方便等原因考虑，不想把 钉钉UI 打包到项目文件中，可以以全局方式引用，即在 HTML 中引入 `amazeui-dingtalk.min.js` 文件，然后以 **`AMUIDingTalk`** 这个全局变量访问组件。
 
-如果使用 Webpack 构建，则可以在配置文件中做设置，比如下面的配置中，React 和 Amaze UI DingTalk 将以全局的方式调用，不会打包到你的项目中（即需要单独引入）。
+如果使用 Webpack 构建，则可以在配置文件中做设置，比如下面的配置中，React 和 amazeui-dingtalk 将以全局的方式调用，不会打包到你的项目中（即需要单独引入）。
 
 ```javascript
 // ...
@@ -144,7 +151,7 @@ externals: {
 // ...
 ```
 
-需要注意的是，Amaze UI DingTalk 使用了 React CSS Transition Group add-on，引入 React 时需使用包含 add-ons 的版本 `react-with-addons.min.js`。
+需要注意的是，钉钉UI 使用了 React CSS Transition Group add-on，引入 React 时需使用包含 add-ons 的版本 `react-with-addons.min.js`。
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-with-addons.min.js"></script>
