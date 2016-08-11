@@ -29,9 +29,10 @@ const paths = {
   scss: 'scss/amazeui-dingtalk.scss',
   scssModules: 'scss/**/*.scss',
   fonts: 'fonts/*',
-  jsEntry: 'js/index.js',
+  reactEntry: 'js/react/index.js',
   dist: 'dist',
   docsDist: 'www',
+  jqDocs: 'docs/jq/*.md',
 };
 
 const autoprefixerOptions = {
@@ -94,7 +95,7 @@ gulp.task('build:babel', () => {
 });
 
 gulp.task('build:pack', () => {
-  return gulp.src(paths.jsEntry)
+  return gulp.src(paths.reactEntry)
     .pipe(webpackStream(webpackConfig))
     .pipe(replaceVersion())
     .pipe(addBanner())
@@ -115,7 +116,8 @@ gulp.task('build', (callback) => {
 });
 
 gulp.task('watch', () => {
-  gulp.watch('js/**/*.js', ['build:babel']);
+  // gulp.watch('js/**/*.js', ['build:babel']);
+  gulp.watch(paths.jqDocs, ['jq:md2json']);
 });
 
 /**
@@ -145,7 +147,17 @@ gulp.task('server', () => {
 });
 
 gulp.task('docs', (callback) => {
-  runSequence('docs:clean', 'server', callback);
+  runSequence('docs:clean', 'jq', 'server', callback);
 });
 
-gulp.task('default', ['docs']);
+import markedToJSON from './scripts/gulp-marked-json';
+
+gulp.task('jq:md2json', () => {
+  return gulp.src(paths.jqDocs)
+    .pipe(markedToJSON())
+    .pipe(gulp.dest('www/json'));
+});
+
+gulp.task('jq', ['jq:md2json']);
+
+gulp.task('default', ['docs', 'watch']);

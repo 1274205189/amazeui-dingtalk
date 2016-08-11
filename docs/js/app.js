@@ -10,9 +10,10 @@ import {
 
 import '../style/app.scss';
 
-import Container from '../../js/Container';
+import Container from '../../js/react/Container';
 
 import ComponentDoc from './ComponentDoc';
+import DocJQ from './DocJQ';
 import Index from './Index';
 
 const Header = React.createClass({
@@ -74,7 +75,8 @@ const Header = React.createClass({
 
         <div className={`am-collapse am-topbar-collapse ${active}`}>
           <ul className="am-nav am-nav-pills am-topbar-nav am-topbar-left">
-            {this.renderLink('docs/getting-started', '开发文档')}
+            {this.renderLink('docs/getting-started', 'React 版文档')}
+            {this.renderLink('jq', 'jQuery 版文档')}
             <li>
               <a
                 href="http://amazeui.org/"
@@ -134,6 +136,8 @@ const routes = (
       <Route path="docs" component={App.Components}>
         <Route path=":component" component={ComponentDoc} />
         <IndexRoute component={GettingStarted} />
+      </Route>
+      <Route path="jq" component={DocJQ}>
       </Route>
       <IndexRoute component={Index} />
     </Route>

@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {
+  PropTypes,
+} from 'react';
 import {
   Link,
 } from 'react-router';
@@ -134,6 +136,19 @@ const components = [
 ];
 
 const Sidebar = React.createClass({
+  propTypes: {
+    parent: PropTypes.string,
+    onNavSelected: PropTypes.func,
+  },
+
+  getDefaultProps() {
+    return {
+      parent: 'docs',
+      onNavSelected: () => {}
+    };
+  },
+
+
   getInitialState() {
     return {
       filter: null
@@ -147,12 +162,18 @@ const Sidebar = React.createClass({
   },
 
   renderNav() {
+    let {
+      parent,
+      onNavSelected,
+    } = this.props;
+
     let cNav = [
       (
       <li key="gettingStarted">
         <Link
           activeClassName="active"
-          to="/docs/getting-started"
+          to={`/${parent}/getting-started`}
+          onClick={onNavSelected.bind(null, 'getting-started')}
         >
           开始使用
         </Link>
@@ -197,11 +218,13 @@ const Sidebar = React.createClass({
           (name.toLowerCase().indexOf(filter) > -1) ||
           (title.toLowerCase().indexOf(filter) > -1)
         ) {
+          let componentName = name.toLowerCase();
           let cptNav = (
             <li key={`c${i}-item${index}`}>
               <Link
                 activeClassName="active"
-                to={`/docs/${name.toLowerCase()}`}
+                to={`/${parent}/${componentName}`}
+                onClick={onNavSelected.bind(null, componentName)}
               >
                 {title} <span className="en">{name}</span>
               </Link>

@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from '../../js/Container';
+import Container from '../../js/react/Container';
 import Sidebar from './Sidebar';
 import * as docs from '../components';
 
@@ -16,9 +16,7 @@ function isNodeInTree(node, tree) {
   }
 
   return false;
-};
-
-const sidebar = <Sidebar />;
+}
 
 const ComponentDoc = React.createClass({
   getInitialState() {
@@ -28,7 +26,7 @@ const ComponentDoc = React.createClass({
   },
 
   componentDidMount() {
-    document.addEventListener('click' , this._clickHandler);
+    document.addEventListener('click', this._clickHandler);
   },
 
   componentWillUnmount() {
@@ -59,7 +57,7 @@ const ComponentDoc = React.createClass({
       component,
       params,
       ...props,
-      } = this.props;
+    } = this.props;
     // Getting URL Parameters
     component = component || params.component;
 
@@ -76,7 +74,7 @@ const ComponentDoc = React.createClass({
         fill
         role="doc-main"
       >
-        <Sidebar className={activeClassName} />
+        <Sidebar className={activeClassName}/>
         <Doc />
         <a
           ref="sidebarToggle"
