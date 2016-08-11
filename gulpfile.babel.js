@@ -1,5 +1,5 @@
 /**
- * 钉钉UI Building Tasks
+ * amazeui-dingtalk Building Tasks
  *
  * @author Minwe <minwe@yunshipei.com>
  */
@@ -51,7 +51,7 @@ gulp.task('clean', () => {
 });
 
 /**
- * Build 钉钉UI
+ * Build amazeui-dingtalk
  */
 
 gulp.task('build:clean', () => {

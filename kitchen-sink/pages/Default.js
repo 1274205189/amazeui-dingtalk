@@ -64,7 +64,7 @@ const Default = React.createClass({
         />
         <Container scrollable>
           <Group
-            header="钉钉UI Components"
+            
             noPadded
           >
             <List>

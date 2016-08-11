@@ -13,6 +13,27 @@ $bp-lg-up: quote('(min-width: 1024px)');
   border-bottom-color: darken($banner-bg, 5);
 }
 
+.amt-disable {
+  color: #d1d1d1 !important;
+}
+.amt-tooltip {
+  position: relative;
+   cursor: pointer;
+}
+.amt-tooltip:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    width:120px;
+    z-index: 999;
+    left:-16px;
+    top:50px;
+    display: block;
+    font-size: 1.6rem;
+    background: grey;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
 // Modules
 @import "prism";
 @import "prism-line-numbers";
