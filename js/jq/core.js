@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-const UI = global.$AMUIDingTalk || {};
+const UI = global.AMUIDingTalk$ || {};
 
 UI.VERSION = '__VERSION__';
 

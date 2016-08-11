@@ -15,6 +15,7 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
 import webpackConfig from './webpack.config';
+import webpackConfigJQ from './webpack.config.jq';
 import webpackConfigDev from './webpack.docs.babel';
 import pkg from './package.json';
 
@@ -30,6 +31,7 @@ const paths = {
   scssModules: 'scss/**/*.scss',
   fonts: 'fonts/*',
   reactEntry: 'js/react/index.js',
+  jqEntry: 'js/jq/index.js',
   dist: 'dist',
   docsDist: 'www',
   jqDocs: 'docs/jq/*.md',
@@ -107,10 +109,23 @@ gulp.task('build:pack', () => {
     .pipe(gulp.dest(paths.dist));
 });
 
+gulp.task('build:pack:jq', () => {
+  return gulp.src(paths.jqEntry)
+    .pipe(webpackStream(webpackConfigJQ))
+    .pipe(replaceVersion())
+    .pipe(addBanner())
+    .pipe($.rename('amazeui-dingtalk.jq.js'))
+    .pipe(gulp.dest(paths.dist))
+    .pipe($.uglify())
+    .pipe(addBanner())
+    .pipe($.rename({suffix: '.min'}))
+    .pipe(gulp.dest(paths.dist));
+});
+
 gulp.task('build', (callback) => {
   runSequence(
     'build:clean',
-    ['style', 'build:babel', 'build:pack',],
+    ['style', 'build:babel', 'build:pack', 'build:pack:jq'],
     callback
   );
 });
