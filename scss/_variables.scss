@@ -574,6 +574,13 @@ $breadcrumb-separator-margin: 0 rem-calc(8) !default;
 $breadcrumb-separator-color: #c9c9c9 !default;
 
 
+// Checkbox
+// -----------------------------------------------------------------------------
+$checkbox-prefix: #{$namespace}checkbox !default;
+$checkbox-size: rem-calc(20) !default;
+$checkbox-checked-background-color: $global-primary !default;
+
+
 // Gallery
 // -----------------------------------------------------------------------------
 $gallery-prefix: #{$namespace}gallery !default;

@@ -282,6 +282,7 @@ $item-nested-radio: get-item-nested-modifier(radio);
 
 %item-radio-checkbox {
   @extend %item-nested-field;
+  display: block;
   padding: 0;
 
   // check icon
@@ -302,27 +303,6 @@ $item-nested-radio: get-item-nested-modifier(radio);
 .#{$item-prefix}-checkbox,
 .#{$item-prefix}-radio {
   @extend %item-radio-checkbox;
-}
-
-.#{$item-prefix}-checkbox {
-  .#{$icon-prefix} {
-    position: relative;
-    display: block;
-    color: $white !important;
-    border: 1px solid #c7c7c7;
-
-    &:before {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
-
-  input:checked + .#{$icon-prefix} {
-    background: $global-primary;
-    border-color: $global-primary;
-  }
 }
 
 .#{$item-prefix}-radio {

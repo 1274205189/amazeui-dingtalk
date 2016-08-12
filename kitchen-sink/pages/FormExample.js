@@ -9,6 +9,7 @@ import {
   Field,
   Button,
   Switch,
+  Checkbox,
 } from 'amazeui-dingtalk';
 
 let fields = [

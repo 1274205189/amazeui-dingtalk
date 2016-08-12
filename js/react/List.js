@@ -6,6 +6,7 @@ import ClassNameMixin from './mixins/ClassNameMixin';
 import Icon from './Icon';
 import Field from './Field';
 import Switch from './Switch';
+import Checkbox from './Checkbox';
 
 import '../../scss/components/_list.scss';
 
@@ -93,19 +94,29 @@ const ListItem = React.createClass({
     let field = null;
 
     if (nested) {
-      let Component = nested === 'switch' ? Switch : Field;
-
-      field = (
-        <div
-          className={this.prefixClass(nested)}
-        >
-          <Component
-            type={nested}
-            {...nestedProps}
-          />
-          {(nested === 'radio' || nested === 'checkbox') && <Icon name='check' />}
-        </div>
-      );
+      switch (nested) {
+        case 'checkbox':
+          field = (
+            <Checkbox
+              containerClassName={this.prefixClass(nested)}
+              {...nestedProps}
+            />
+          );
+          break;
+        default:
+          let Component = nested === 'switch' ? Switch : Field;
+          field = (
+            <div
+              className={this.prefixClass(nested)}
+            >
+              <Component
+                type={nested}
+                {...nestedProps}
+              />
+              {(nested === 'radio') && <Icon name='check' />}
+            </div>
+          );
+      }
     }
 
     return field;

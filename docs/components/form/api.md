@@ -188,4 +188,58 @@ function handleSwitch() {
 const mySwitch = <Switch onValueChange={handleSwitch} />;
 ```
 
+---
+
+### Checkbox
+
+`<Checkbox>` 组件，生成复选框。
+
+#### Props
+
+##### `container`
+
+> PropType: `node`
+
+`input` 容器组件，默认为 `div`。
+
+##### `containerClassName`
+
+> PropType: `string`
+
+添加到容器上的类名。 
+
+`<Checkbox>` 的渲染逻辑如下，除了以上两个属性，其他属性都会应用到包裹的 `<Field>` 组件上。
+
+```javascript
+<Container
+  className={cx(classSet, containerClassName)}
+>
+  <Field
+    {...props}
+    type="checkbox"
+    ref="field"
+  />
+  <Icon
+    name="check"
+    className={this.prefixClass('icon')}
+  />
+</Container>
+```
+
+#### 方法
+
+##### `.getChecked()`
+
+获取状态，选中时返回 `true`，否则返回 `false`。
+
+```javascript
+function handleChange() {
+  console.log(this.getChecked());
+}
+
+const myCheckbox = (
+    <Switch onChange={handleChange} container="label" />
+  );
+```
+
 ## 示例

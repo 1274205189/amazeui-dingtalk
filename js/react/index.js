@@ -36,6 +36,7 @@ export View from './View';
 
 export Avatar from './Avatar';
 export Breadcrumb from './Breadcrumb';
+export Checkbox from './Checkbox';
 export Gallery from './Gallery';
 export SearchBar from './SearchBar';
 
