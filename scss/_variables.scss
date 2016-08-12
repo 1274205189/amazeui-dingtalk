@@ -433,7 +433,7 @@ $carousel-caption-color: $white !default;
 // -----------------------------------------------------------------------------
 $switch-prefix: #{$namespace}switch !default;
 $switch-background: #e5e5e5 !default;
-$switch-background-active: #4cd964 !default;
+$switch-background-active: $global-primary !default;
 $switch-inner-background: $white !default;
 $switch-radius: 9999px !default;
 
