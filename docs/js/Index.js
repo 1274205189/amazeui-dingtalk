@@ -117,19 +117,20 @@ const Index = React.createClass({
             </div>
           </div>
         </div>
-        <div className="amt-subscribe">
-          <div className="am-g am-g-fixed">
-            <div className="am-u-sm-6">
-              2016-8-15 | Amaze UI for 钉钉 v1.0.0发布
-            </div>
-            <div className="am-u-sm-2 am-u-sm-offset-2">
-              <input type="email" className="" placeholder="输入电子邮件" />
-            </div>
-            <div className="am-u-sm-2">
-              <button type="submit" className="am-btn am-btn-default">提交</button>
-            </div>
-          </div>
-        </div>
+        { // <div className="amt-subscribe">
+        //   <div className="am-g am-g-fixed">
+        //     <div className="am-u-sm-6">
+        //       2016-8-15 | Amaze UI for 钉钉 v1.0.0发布
+        //     </div>
+        //     <div className="am-u-sm-2 am-u-sm-offset-2">
+        //       <input type="email" className="" placeholder="输入电子邮件" />
+        //     </div>
+        //     <div className="am-u-sm-2">
+        //       <button type="submit" className="am-btn am-btn-default">提交</button>
+        //     </div>
+        //   </div>
+        // </div>
+         }
         <div className="amt-about">
           <div className="am-g am-g-fixed">
             <h1>关于我们</h1>
