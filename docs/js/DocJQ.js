@@ -1,6 +1,7 @@
 import React, {
   PropTypes,
 } from 'react';
+import 'whatwg-fetch';
 import Container from '../../js/react/Container';
 import Sidebar from './Sidebar';
 
@@ -159,7 +160,7 @@ const ComponentDoc = React.createClass({
   },
 
   handleNavSelected(docName, e) {
-    e.preventDefault();
+    // e.preventDefault();
 
     this.setState({
       docName,

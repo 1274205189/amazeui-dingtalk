@@ -14,6 +14,7 @@ import webpackStream from 'webpack-stream';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
+import markedOptions from './docs/utils/markeqOptions';
 import webpackConfig from './webpack.config';
 import webpackConfigJQ from './webpack.config.jq';
 import webpackConfigDev from './webpack.docs.babel';
@@ -169,7 +170,7 @@ import markedToJSON from './scripts/gulp-marked-json';
 
 gulp.task('jq:md2json', () => {
   return gulp.src(paths.jqDocs)
-    .pipe(markedToJSON())
+    .pipe(markedToJSON(markedOptions))
     .pipe(gulp.dest('www/json'));
 });
 

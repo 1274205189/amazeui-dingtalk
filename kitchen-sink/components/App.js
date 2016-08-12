@@ -14,12 +14,14 @@ const App = React.createClass({
       params,
       children,
     } = this.props;
-    let transition = children.props.transition || 'sfr';
+    // let transition = children.props.transition || 'sfr';
 
     return (
       <Container direction="column" id="sk-container">
         <Container
-          transition={transition}
+          // transition={transition}
+          direction="column"
+          fill
         >
           {React.cloneElement(children, {key: location.key})}
         </Container>

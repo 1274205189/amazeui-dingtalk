@@ -143,7 +143,7 @@ const Sidebar = React.createClass({
 
   getDefaultProps() {
     return {
-      parent: 'docs',
+      parent: 'react',
       onNavSelected: () => {}
     };
   },
@@ -182,7 +182,8 @@ const Sidebar = React.createClass({
         <li key="modular">
           <Link
             activeClassName="active"
-            to="/docs/advanced"
+            to={`/${parent}/advanced`}
+            onClick={onNavSelected.bind(null, 'advanced')}
           >
             进阶使用
           </Link>

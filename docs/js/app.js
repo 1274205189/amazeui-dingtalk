@@ -75,7 +75,7 @@ const Header = React.createClass({
 
         <div className={`am-collapse am-topbar-collapse ${active}`}>
           <ul className="am-nav am-nav-pills am-topbar-nav am-topbar-left">
-            {this.renderLink('docs/getting-started', 'React 版文档')}
+            {this.renderLink('react/getting-started', 'React 版文档')}
             {this.renderLink('jq', 'jQuery 版文档')}
             <li>
               <a
@@ -133,11 +133,12 @@ const GettingStarted = React.createClass({
 const routes = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <Route path="docs" component={App.Components}>
+      <Route path="react" component={App.Components}>
         <Route path=":component" component={ComponentDoc} />
         <IndexRoute component={GettingStarted} />
       </Route>
       <Route path="jq" component={DocJQ}>
+        <Route path=":component" component={DocJQ} />
       </Route>
       <IndexRoute component={Index} />
     </Route>
