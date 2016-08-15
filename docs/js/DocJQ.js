@@ -2,8 +2,13 @@ import React, {
   PropTypes,
 } from 'react';
 import 'whatwg-fetch';
+import Clipboard from 'clipboard';
 import Container from '../../js/react/Container';
 import Sidebar from './Sidebar';
+
+const template = require('fs').readFileSync(`${__dirname}/../jq/template.html`, 'utf-8');
+
+console.log(template);
 
 const isSM = matchMedia('(max-width: 640px)').matches;
 
@@ -128,16 +133,70 @@ const ComponentDoc = React.createClass({
   getInitialState() {
     return {
       sidebarActive: false,
-      docName: 'getting-started',
+      docName: this.props.params.component || 'getting-started',
+      demoActive: false,
     };
   },
 
   componentDidMount() {
     document.addEventListener('click', this._clickHandler);
+    document.addEventListener('click', this.openDemo);
+
+    this._clipboard = new Clipboard('.code-copy', {
+      target: (trigger) => {
+        return trigger.parentNode.parentNode.querySelector('pre');
+      }
+    });
+
+    this._clipboard.on('success', (e) => {
+      console.info('success', e.text);
+      e.clearSelection();
+    });
+
+    this._clipboard.on('error', (e) => {
+      console.error(e);
+    });
   },
 
   componentWillUnmount() {
-    document.removeEventListener('click', this._clickHandler)
+    document.removeEventListener('click', this._clickHandler);
+
+    try {
+      this._clipboard.destroy();
+    } catch(e) {}
+  },
+
+  openDemo(e) {
+    const target = e.target;
+
+    if (!target.classList.contains('code-demo')) {
+      return;
+    }
+
+    e.stopPropagation();
+
+
+    /*if (!this._demoFrame) {
+      this._demoFrame = document.createElement('iframe');
+      this._demoFrame.className = 'demo-frame';
+      document.body.appendChild(this._demoFrame);
+    }*/
+
+    let code = target.parentNode.parentNode.querySelector('pre').innerText;
+    const frame = this.refs.demoFrame;
+
+    var html = `<body>${code}</body>`;
+    frame.contentWindow.document.open();
+    frame.contentWindow.document.write(html);
+    frame.contentWindow.document.close();
+
+    this.setState({demoActive: true});
+  },
+
+  closeDemo() {
+    this.setState({
+      demoActive: false,
+    });
   },
 
   _clickHandler(e) {
@@ -177,6 +236,7 @@ const ComponentDoc = React.createClass({
     } = this.props;
 
     const activeClassName = this.state.sidebarActive ? ' active' : '';
+    const demoActive = this.state.demoActive ? 'active' : '';
 
     return (
       <Container
@@ -197,6 +257,13 @@ const ComponentDoc = React.createClass({
         >
           <span />
         </a>
+        <div className={`demo-wrap ${demoActive}`}>
+          <iframe frameBorder="0" ref="demoFrame"></iframe>
+          <span
+            className="am-icon-close"
+            onClick={this.closeDemo}
+          />
+        </div>
       </Container>
     );
   }
