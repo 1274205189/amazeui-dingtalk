@@ -19,26 +19,6 @@
 - `.col`: 灰色线框
 - 演示容器 `div.ks-grid`: 仅作辅助演示用，实际使用时请删除
 
-
-`````css
-.ks-grid .g {
-  margin: 5px 5px 0;
-  border: 1px dashed red;
-  padding: 5px;
-}
-
-.ks-grid .g .g {
-  margin: 5px 0;
-  border-color: cornflowerblue;
-}
-
-.ks-grid .col {
-  border: 1px solid #ddd;
-  min-height: 20px;
-  background: #fff;
-}
-`````
-
 ## 基本演示
 
 ### 基本网格

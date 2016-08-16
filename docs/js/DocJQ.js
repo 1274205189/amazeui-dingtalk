@@ -7,9 +7,6 @@ import Container from '../../js/react/Container';
 import Sidebar from './Sidebar';
 
 const template = require('fs').readFileSync(`${__dirname}/../jq/template.html`, 'utf-8');
-
-console.log(template);
-
 const isSM = matchMedia('(max-width: 640px)').matches;
 
 function isNodeInTree(node, tree) {
