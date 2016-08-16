@@ -141,6 +141,7 @@ const ComponentDoc = React.createClass({
   componentDidMount() {
     document.addEventListener('click', this._clickHandler);
     document.addEventListener('click', this.openDemo);
+    document.addEventListener('keyup', this.handleEsc);
 
     this._clipboard = new Clipboard('.code-copy', {
       target: (trigger) => {
@@ -160,6 +161,8 @@ const ComponentDoc = React.createClass({
 
   componentWillUnmount() {
     document.removeEventListener('click', this._clickHandler);
+    document.removeEventListener('click', this.closeDemo);
+    document.removeEventListener('keyup', this.handleEsc);
 
     try {
       this._clipboard.destroy();
@@ -175,17 +178,10 @@ const ComponentDoc = React.createClass({
 
     e.stopPropagation();
 
-
-    /*if (!this._demoFrame) {
-      this._demoFrame = document.createElement('iframe');
-      this._demoFrame.className = 'demo-frame';
-      document.body.appendChild(this._demoFrame);
-    }*/
-
-    let code = target.parentNode.parentNode.querySelector('pre').innerText;
+    const code = target.parentNode.parentNode.querySelector('pre').innerText;
     const frame = this.refs.demoFrame;
+    const html = template.replace('<!--INJECT_DEMO-->', code);
 
-    var html = `<body>${code}</body>`;
     frame.contentWindow.document.open();
     frame.contentWindow.document.write(html);
     frame.contentWindow.document.close();
@@ -197,6 +193,12 @@ const ComponentDoc = React.createClass({
     this.setState({
       demoActive: false,
     });
+  },
+
+  handleEsc(e) {
+    if (e.keyCode === 27 && this.state.demoActive) {
+      this.closeDemo();
+    }
   },
 
   _clickHandler(e) {
@@ -257,7 +259,10 @@ const ComponentDoc = React.createClass({
         >
           <span />
         </a>
-        <div className={`demo-wrap ${demoActive}`}>
+        <div
+          className={`demo-wrap ${demoActive}`}
+          onKeyUp={this.handleEsc}
+        >
           <iframe frameBorder="0" ref="demoFrame"></iframe>
           <span
             className="am-icon-close"
