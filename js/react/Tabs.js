@@ -3,8 +3,6 @@ import React, {
 } from 'react';
 import cx from 'classnames';
 import ClassNameMixin from './mixins/ClassNameMixin';
-import Button from './Button';
-import ButtonGroup from './ButtonGroup';
 
 import '../../scss/components/_tabs.scss';
 
@@ -94,8 +92,7 @@ const Tabs = React.createClass({
       let {
         eventKey,
         disabled,
-        navSize,
-        navStyle,
+        href,
       } = child.props;
       let key = index;
 
@@ -103,30 +100,25 @@ const Tabs = React.createClass({
       let active = eventKey === activeKey;
 
       return (
-        <Button
+        <a
+          href={href || 'javascript: void(0);'}
           ref={'tabNav' + key}
           key={key}
           onClick={this.handleClick.bind(this, key, disabled)}
-          active={active}
           disabled={disabled}
           className={active ? 'active' : null}
-          amSize={navSize || 'sm'}
-          amStyle={navStyle || 'primary'}
-          hollow
         >
           {child.props.title}
-        </Button>
+        </a>
       );
     });
 
     return (
-      <ButtonGroup
+      <nav
         className={this.prefixClass('nav')}
-        justify
-        radius={this.props.radius}
       >
         {navs}
-      </ButtonGroup>
+      </nav>
     )
   },
 
@@ -200,8 +192,6 @@ const TabsItem = React.createClass({
     disabled: PropTypes.bool,
     active: PropTypes.bool,
     noPadded: PropTypes.bool,
-    navSize: PropTypes.string,
-    navStyle: PropTypes.string,
   },
 
   getDefaultProps() {

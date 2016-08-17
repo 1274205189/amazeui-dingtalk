@@ -453,6 +453,14 @@ $tabbar-color: $gray-light!default;
 $tabs-prefix: #{$namespace}tabs !default;
 $tab-prefix: #{$namespace}tab !default;
 $tabs-background: $white !default;
+$tabs-nav-height: rem-calc(43) !default;
+$tabs-nav-border-color: #dedede !default;
+$tabs-nav-color: $gray !default;
+$tabs-nav-active-color: $global-secondary !default;
+$tabs-radius-nav-height: rem-calc(27) !default;
+$tabs-radius-nav-border-color: $global-secondary !default;
+$tabs-radius-nav-color: $white !default;
+$tabs-radius-nav-active-color: $global-secondary !default;
 
 
 // Typography

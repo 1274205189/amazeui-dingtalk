@@ -78,8 +78,9 @@ const TabsExample = React.createClass({
               )
             })}
           </Tabs>
+        </Group>
 
-          <hr />
+        <Group>
           <div className="padding-h padding-bottom">
             <Button
               amStyle="primary"
