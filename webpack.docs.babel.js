@@ -89,7 +89,7 @@ export default {
         loader: prod ? ExtractTextPlugin.extract(
           'style',
           'css?minimize!postcss!sass',
-        ) : 'style!css?sourceMap!postcss!sass?sourceMap',
+        ) : 'style!css?sourceMap!postcss?sourceMap!sass?sourceMap',
       },
       /*{
         test: /\.(ttf|svg|woff)$/,

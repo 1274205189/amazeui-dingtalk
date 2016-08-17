@@ -433,7 +433,7 @@ $carousel-caption-color: $white !default;
 // -----------------------------------------------------------------------------
 $switch-prefix: #{$namespace}switch !default;
 $switch-background: #e5e5e5 !default;
-$switch-background-active: #4cd964 !default;
+$switch-background-active: $global-primary !default;
 $switch-inner-background: $white !default;
 $switch-radius: 9999px !default;
 
@@ -453,6 +453,14 @@ $tabbar-color: $gray-light!default;
 $tabs-prefix: #{$namespace}tabs !default;
 $tab-prefix: #{$namespace}tab !default;
 $tabs-background: $white !default;
+$tabs-nav-height: rem-calc(43) !default;
+$tabs-nav-border-color: #dedede !default;
+$tabs-nav-color: $gray !default;
+$tabs-nav-active-color: $global-secondary !default;
+$tabs-radius-nav-height: rem-calc(27) !default;
+$tabs-radius-nav-border-color: $global-secondary !default;
+$tabs-radius-nav-color: $white !default;
+$tabs-radius-nav-active-color: $global-secondary !default;
 
 
 // Typography
@@ -572,6 +580,13 @@ $breadcrumb-color: $gray !default;
 $breadcrumb-active-color: $gray-light !default;
 $breadcrumb-separator-margin: 0 rem-calc(8) !default;
 $breadcrumb-separator-color: #c9c9c9 !default;
+
+
+// Checkbox
+// -----------------------------------------------------------------------------
+$checkbox-prefix: #{$namespace}checkbox !default;
+$checkbox-size: rem-calc(20) !default;
+$checkbox-checked-background-color: $global-primary !default;
 
 
 // Gallery

@@ -65,10 +65,4 @@
 
 是否移除选项卡面板的内边距（`padding`）。
 
-##### `navStyle`
-
-> PropType: `string`
-
-选项卡标题颜色样式，可选值见 `Button` 颜色样式。
-
 ## 示例

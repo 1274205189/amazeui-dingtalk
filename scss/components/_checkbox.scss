@@ -1,0 +1,43 @@
+// Amaze UI DingTalk: Icons
+//
+// @via https://github.com/twbs/ratchet/tree/master/fonts
+// @licence MIT
+// =============================================================================
+@import "../env";
+
+// Output
+// -----------------------------------------------------------------------------
+
+.#{$checkbox-prefix} {
+  display: inline-block;
+  @include square($checkbox-size);
+
+  input {
+    display: none;
+  }
+}
+
+.#{$checkbox-prefix}-icon {
+  position: relative;
+  display: block;
+  @include square($checkbox-size);
+  line-height: $checkbox-size;
+  font-size: $checkbox-size;
+  overflow: hidden;
+  border-radius: $checkbox-size / 2;
+  color: $white !important;
+  border: 1px solid #c7c7c7;
+  background: #fff;
+
+  &:before {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  input:checked + & {
+    background: $checkbox-checked-background-color;
+    border-color: $checkbox-checked-background-color;
+  }
+}

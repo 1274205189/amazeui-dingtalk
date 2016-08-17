@@ -14,10 +14,14 @@ import webpackStream from 'webpack-stream';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
+import markedToJSON from './scripts/gulp-marked-json';
+import markedOptions from './docs/utils/markeqOptions';
 import webpackConfig from './webpack.config';
+import webpackConfigJQ from './webpack.config.jq';
 import webpackConfigDev from './webpack.docs.babel';
 import pkg from './package.json';
 
+const prod = process.env.NODE_ENV === 'production';
 const $ = gulpLoadPlugins();
 const banner = `/** ${pkg.title} v${pkg.version} | by Amaze UI Team
   * (c) ${$.util.date(Date.now(), 'UTC:yyyy')} AllMobilize, Inc., Licensed under ${pkg.license}
@@ -29,9 +33,11 @@ const paths = {
   scss: 'scss/amazeui-dingtalk.scss',
   scssModules: 'scss/**/*.scss',
   fonts: 'fonts/*',
-  jsEntry: 'js/index.js',
+  reactEntry: 'js/react/index.js',
+  jqEntry: 'js/jq/index.js',
   dist: 'dist',
   docsDist: 'www',
+  jqDocs: 'docs/jq/*.md',
 };
 
 const autoprefixerOptions = {
@@ -68,16 +74,19 @@ gulp.task('style:scss', () => {
     }).on('error', $.sass.logError))
     .pipe($.autoprefixer(autoprefixerOptions))
     .pipe(addBanner())
-    .pipe(gulp.dest(paths.dist))
+    .pipe($.if(prod, gulp.dest(paths.dist)))
+    .pipe($.if(!prod, gulp.dest(paths.docsDist)))
     .pipe($.csso())
     .pipe(addBanner())
     .pipe($.rename({suffix: '.min'}))
-    .pipe(gulp.dest(paths.dist));
+    .pipe($.if(prod, gulp.dest(paths.dist)))
+    .pipe($.if(!prod, gulp.dest(paths.docsDist)));
 });
 
 gulp.task('style:fonts', () => {
   return gulp.src(paths.fonts)
-    .pipe(gulp.dest(paths.dist + '/fonts'));
+    .pipe($.if(prod, gulp.dest(paths.dist  + '/fonts')))
+    .pipe($.if(!prod, gulp.dest(paths.docsDist  + '/fonts')));
 });
 
 gulp.task('style', ['style:scss', 'style:fonts']);
@@ -94,7 +103,7 @@ gulp.task('build:babel', () => {
 });
 
 gulp.task('build:pack', () => {
-  return gulp.src(paths.jsEntry)
+  return gulp.src(paths.reactEntry)
     .pipe(webpackStream(webpackConfig))
     .pipe(replaceVersion())
     .pipe(addBanner())
@@ -106,16 +115,30 @@ gulp.task('build:pack', () => {
     .pipe(gulp.dest(paths.dist));
 });
 
+gulp.task('build:pack:jq', () => {
+  return gulp.src(paths.jqEntry)
+    .pipe(webpackStream(webpackConfigJQ))
+    .pipe(replaceVersion())
+    .pipe(addBanner())
+    .pipe($.rename('amazeui-dingtalk.jq.js'))
+    .pipe(gulp.dest(paths.dist))
+    .pipe($.uglify())
+    .pipe(addBanner())
+    .pipe($.rename({suffix: '.min'}))
+    .pipe(gulp.dest(paths.dist));
+});
+
 gulp.task('build', (callback) => {
   runSequence(
     'build:clean',
-    ['style', 'build:babel', 'build:pack',],
+    ['style', 'build:babel', 'build:pack', 'build:pack:jq'],
     callback
   );
 });
 
 gulp.task('watch', () => {
-  gulp.watch('js/**/*.js', ['build:babel']);
+  gulp.watch(paths.scssModules, ['style:scss']);
+  gulp.watch(paths.jqDocs, ['jq:md2json']);
 });
 
 /**
@@ -132,7 +155,7 @@ gulp.task('server', () => {
   bs.init({
     logPrefix: 'AMT',
     server: {
-      baseDir: [paths.docsDist],
+      baseDir: [paths.docsDist, paths.dist],
       middleware: [
         webpackDevMiddleware(bundler, {
           publicPath: '/', // webpackConfigDev.output.publicPath,
@@ -145,7 +168,15 @@ gulp.task('server', () => {
 });
 
 gulp.task('docs', (callback) => {
-  runSequence('docs:clean', 'server', callback);
+  runSequence('docs:clean', 'jq', 'style', 'server', callback);
 });
 
-gulp.task('default', ['docs']);
+gulp.task('jq:md2json', () => {
+  return gulp.src(paths.jqDocs)
+    .pipe(markedToJSON(markedOptions))
+    .pipe(gulp.dest('www/json'));
+});
+
+gulp.task('jq', ['jq:md2json']);
+
+gulp.task('default', ['docs', 'watch']);

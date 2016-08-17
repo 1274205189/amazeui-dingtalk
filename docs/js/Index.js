@@ -2,8 +2,7 @@ import React from 'react';
 import {
   Link,
 } from 'react-router';
-import Container from '../../js/Container';
-import Field from '../../js/Field';
+import Container from '../../js/react/Container';
 import {
   QRCode,
 } from '../utils';
