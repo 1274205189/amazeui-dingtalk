@@ -90,6 +90,7 @@
     a {
       height: $tabs-radius-nav-height;
       line-height: $tabs-radius-nav-height;
+      font-size: rem-calc(14);
 
       & + a {
         border-left: 1px solid $tabs-radius-nav-border-color;
