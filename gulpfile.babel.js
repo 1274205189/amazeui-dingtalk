@@ -168,7 +168,7 @@ gulp.task('server', () => {
 });
 
 gulp.task('docs', (callback) => {
-  runSequence('docs:clean', 'jq', 'style', 'server', callback);
+  runSequence('docs:clean', 'docs:jq', 'style', 'server', callback);
 });
 
 gulp.task('jq:md2json', () => {
@@ -177,6 +177,6 @@ gulp.task('jq:md2json', () => {
     .pipe(gulp.dest('www/json'));
 });
 
-gulp.task('jq', ['jq:md2json']);
+gulp.task('docs:jq', ['jq:md2json']);
 
 gulp.task('default', ['docs', 'watch']);

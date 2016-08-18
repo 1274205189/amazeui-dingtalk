@@ -6,8 +6,11 @@ import Clipboard from 'clipboard';
 import Container from '../../js/react/Container';
 import Sidebar from './Sidebar';
 
-const template = require('fs').readFileSync(`${__dirname}/../jq/template.html`, 'utf-8');
+let template = require('fs').readFileSync(`${__dirname}/../jq/template.html`, 'utf-8');
 const isSM = matchMedia('(max-width: 640px)').matches;
+const ASSETS_PATH = process.env.NODE_ENV === 'production' ? 'ding' : '';
+
+template = template.replace('__ASSETS_PATH__', ASSETS_PATH);
 
 function isNodeInTree(node, tree) {
   while (node) {
@@ -56,7 +59,7 @@ const Doc = React.createClass({
       loading: true,
     });
 
-    fetch(`/json/${docName}.json`)
+    fetch(`${__DINGTALK_DOCS_PATH__}/json/${docName}.json`)
       .then(res => {
         if (res.ok) {
           return res.json();

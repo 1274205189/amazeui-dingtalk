@@ -9,6 +9,7 @@ import markedOptions from './docs/utils/markeqOptions';
 import pkg from './package.json';
 
 const prod = process.env.NODE_ENV === 'production';
+const DINGTALK_DOCS_PATH = prod ? 'ding' : '';
 
 const hotEntry =  [
   'webpack/hot/dev-server',
@@ -39,6 +40,7 @@ let plugins = [
   new webpack.DefinePlugin({
     __VERSION__: JSON.stringify(pkg.version),
     SERVER_RENDING: false,
+    __DINGTALK_DOCS_PATH__: JSON.stringify(DINGTALK_DOCS_PATH),
     'process.env': {
       'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
     },
