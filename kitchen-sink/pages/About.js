@@ -22,10 +22,10 @@ const About = React.createClass({
     return (
       <Container {...props}>
         <Group
-          header="关于 Amaze UI DingTalk"
+          header="关于 钉钉UI"
           footer={`ver ${__VERSION__}`}
         >
-          <p>Amaze UI DingTalk 是为钉钉定制的 UI 组件库，当前版本基于 React.js。</p>
+          <p>钉钉UI 是为钉钉定制的 UI 组件库，当前版本基于 React.js。</p>
         </Group>
         <Group
           header="开发人员"

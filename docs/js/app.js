@@ -63,7 +63,6 @@ const Header = React.createClass({
       <header className="am-topbar am-topbar-inverse amt-header">
         <h1 className="am-topbar-brand">
           <a href="/" className="am-text-ir">Amaze UI Touch</a>
-          <span className="am-badge am-badge-danger">Touch</span>
         </h1>
 
         <a
@@ -75,15 +74,26 @@ const Header = React.createClass({
 
         <div className={`am-collapse am-topbar-collapse ${active}`}>
           <ul className="am-nav am-nav-pills am-topbar-nav am-topbar-left">
+            {// {this.renderLink('docs/getting-started', '开发文档')}
+          }
             {this.renderLink('react/getting-started', 'React 版文档')}
-            {this.renderLink('jq', 'jQuery 版文档')}
+            <li className="amt-tooltip" data-tooltip="正在极速开发中" >
+              <a
+                href="#"
+                className="amt-disable"
+              >
+                jQuery版
+              </a>
+            </li>
+            { // {this.renderLink('jq', 'jQuery 版文档')}
+          }
             <li>
               <a
                 href="http://amazeui.org/"
                 target="_blank"
                 onClick={this.onMatchClick}
               >
-                Amaze UI Web
+                Amaze UI 主页
               </a>
             </li>
           </ul>

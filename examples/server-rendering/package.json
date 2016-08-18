@@ -1,7 +1,7 @@
 {
   "name": "amazeui-touch-server-rendering",
   "version": "0.0.0",
-  "description": "Just another Amaze UI DingTalk example.",
+  "description": "Just another 钉钉UI example.",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon bootstrap.js",
