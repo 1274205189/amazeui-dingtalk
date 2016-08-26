@@ -5,7 +5,7 @@
 [![NPM version](https://img.shields.io/npm/v/amazeui-dingtalk.svg?style=flat-square)](https://www.npmjs.com/package/amazeui-dingtalk)
 [![Build Status](https://img.shields.io/travis/amazeui/amazeui-dingtalk.svg?style=flat-square)](https://travis-ci.org/amazeui/amazeui-dingtalk)
 [![Dependency Status](https://img.shields.io/david/amazeui/amazeui-dingtalk.svg?style=flat-square)](https://david-dm.org/amazeui/amazeui-dingtalk)
-[![devDependency Status](https://img.shields.io/david/dev/amazeui/amazeui-dingtallk.svg?style=flat-square)](https://david-dm.org/amazeui/amazeui-dingtalk#info=devDependencies)
+[![devDependency Status](https://img.shields.io/david/dev/amazeui/amazeui-dingtalk.svg?style=flat-square)](https://david-dm.org/amazeui/amazeui-dingtalk#info=devDependencies)
 
 ### [入门套件](https://github.com/amazeui/amt-starter-kit)
 
