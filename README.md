@@ -2,10 +2,10 @@
 
 基于 React.js 的移动端 Web UI 组件库。
 
-[![NPM version](https://img.shields.io/npm/v/amazeui-touch.svg?style=flat-square)](https://www.npmjs.com/package/amazeui-touch)
-[![Build Status](https://img.shields.io/travis/amazeui/amazeui-touch.svg?style=flat-square)](https://travis-ci.org/amazeui/amazeui-touch)
-[![Dependency Status](https://img.shields.io/david/amazeui/amazeui-touch.svg?style=flat-square)](https://david-dm.org/amazeui/amazeui-touch)
-[![devDependency Status](https://img.shields.io/david/dev/amazeui/amazeui-touch.svg?style=flat-square)](https://david-dm.org/amazeui/amazeui-touch#info=devDependencies)
+[![NPM version](https://img.shields.io/npm/v/amazeui-dingtalk.svg?style=flat-square)](https://www.npmjs.com/package/amazeui-dingtalk)
+[![Build Status](https://img.shields.io/travis/amazeui/amazeui-dingtalk.svg?style=flat-square)](https://travis-ci.org/amazeui/amazeui-dingtalk)
+[![Dependency Status](https://img.shields.io/david/amazeui/amazeui-dingtalk.svg?style=flat-square)](https://david-dm.org/amazeui/amazeui-dingtalk)
+[![devDependency Status](https://img.shields.io/david/dev/amazeui/amazeui-dingtallk.svg?style=flat-square)](https://david-dm.org/amazeui/amazeui-dingtalk#info=devDependencies)
 
 ### [入门套件](https://github.com/amazeui/amt-starter-kit)
 
@@ -34,7 +34,7 @@
 1. 从 npm 安装：
 
     ``` bash
-    npm install --save-dev amazeui-touch
+    npm install --save-dev amazeui-dingtalk
     ```
 
 2. 使用 组件：
@@ -102,7 +102,7 @@ ES2015/JSX 编译参见 [钉钉UI Starter Kit](https://github.com/amazeui/amt-st
 1. 克隆源代码并安装依赖：
 
    ``` bash
-   git clone https://github.com/amazeui/amazeui-touch.git
+   git clone https://github.com/amazeui/amazeui-dingtalk.git
    ```
 
    在源码目录下执行：
@@ -120,14 +120,14 @@ ES2015/JSX 编译参见 [钉钉UI Starter Kit](https://github.com/amazeui/amt-st
    相关文件构建完成后会自动打开浏览器，可查看文档及组件演示。
 
 ### 构建
-   
+
 ```bash
 npm run build
 ```
 
 打包后的文件位于 `dist` 目录下。
 
-### [反馈建议](https://github.com/amazeui/amazeui-touch/issues)
+### [反馈建议](https://github.com/amazeui/amazeui-dingtalk/issues)
 
 
 
