@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production gulp build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "eslint": "./node_modules/.bin/eslint ./src/js/",
-    "changelog": "github-changes -o amazeui -r amazeui-touch -a",
+    "changelog": "github-changes -o amazeui -r amazeui-dingtalk -a",
     "docs": "rm -rf www && cross-env NODE_ENV=production webpack --config webpack.docs.babel.js --progress && browser-sync start --server www"
   },
   "repository": {
