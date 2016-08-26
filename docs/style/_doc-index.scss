@@ -47,8 +47,12 @@
   }
 
   h1 {
-    font-size: 36px;
+    font-size: 28px;
     margin-bottom: 10px;
+
+    @media #{$bp-md-up} {
+      font-size: 38px;
+    }
   }
 
   h2 {

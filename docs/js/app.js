@@ -13,7 +13,6 @@ import '../style/app.scss';
 import Container from '../../js/react/Container';
 
 import ComponentDoc from './ComponentDoc';
-import DocJQ from './DocJQ';
 import Index from './Index';
 
 const Header = React.createClass({
@@ -146,9 +145,6 @@ const routes = (
       <Route path="react" component={App.Components}>
         <Route path=":component" component={ComponentDoc} />
         <IndexRoute component={GettingStarted} />
-      </Route>
-      <Route path="jq" component={DocJQ}>
-        <Route path=":component" component={DocJQ} />
       </Route>
       <IndexRoute component={Index} />
     </Route>

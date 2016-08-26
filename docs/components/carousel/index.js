@@ -11,11 +11,12 @@ const CarouselDoc = React.createClass({
     return (
       <Doc>
         <Markdown>{require('./api.md')}</Markdown>
-        <Highlight
-          demo="slider"
-        >
-          {fs.readFileSync(`${__dirname}/../../../kitchen-sink/pages/CarouselExample.js`, 'utf-8')}
-        </Highlight>
+        {// <Highlight
+        //   demo="slider"
+        // >
+        //   {fs.readFileSync(`${__dirname}/../../../kitchen-sink/pages/CarouselExample.js`, 'utf-8')}
+        // </Highlight>
+      }
       </Doc>
     );
   }

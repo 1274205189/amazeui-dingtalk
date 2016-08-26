@@ -17,7 +17,6 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import markedToJSON from './scripts/gulp-marked-json';
 import markedOptions from './docs/utils/markeqOptions';
 import webpackConfig from './webpack.config';
-import webpackConfigJQ from './webpack.config.jq';
 import webpackConfigDev from './webpack.docs.babel';
 import pkg from './package.json';
 
@@ -34,10 +33,8 @@ const paths = {
   scssModules: 'scss/**/*.scss',
   fonts: 'fonts/*',
   reactEntry: 'js/react/index.js',
-  jqEntry: 'js/jq/index.js',
   dist: 'dist',
   docsDist: 'www',
-  jqDocs: 'docs/jq/*.md',
 };
 
 const autoprefixerOptions = {
@@ -115,30 +112,16 @@ gulp.task('build:pack', () => {
     .pipe(gulp.dest(paths.dist));
 });
 
-gulp.task('build:pack:jq', () => {
-  return gulp.src(paths.jqEntry)
-    .pipe(webpackStream(webpackConfigJQ))
-    .pipe(replaceVersion())
-    .pipe(addBanner())
-    .pipe($.rename('amazeui-dingtalk.jq.js'))
-    .pipe(gulp.dest(paths.dist))
-    .pipe($.uglify())
-    .pipe(addBanner())
-    .pipe($.rename({suffix: '.min'}))
-    .pipe(gulp.dest(paths.dist));
-});
-
 gulp.task('build', (callback) => {
   runSequence(
     'build:clean',
-    ['style', 'build:babel', 'build:pack', 'build:pack:jq'],
+    ['style', 'build:babel', 'build:pack'],
     callback
   );
 });
 
 gulp.task('watch', () => {
   gulp.watch(paths.scssModules, ['style:scss']);
-  gulp.watch(paths.jqDocs, ['jq:md2json']);
 });
 
 /**
@@ -168,15 +151,7 @@ gulp.task('server', () => {
 });
 
 gulp.task('docs', (callback) => {
-  runSequence('docs:clean', 'docs:jq', 'style', 'server', callback);
+  runSequence('docs:clean', 'style', 'server', callback);
 });
-
-gulp.task('jq:md2json', () => {
-  return gulp.src(paths.jqDocs)
-    .pipe(markedToJSON(markedOptions))
-    .pipe(gulp.dest('www/json'));
-});
-
-gulp.task('docs:jq', ['jq:md2json']);
 
 gulp.task('default', ['docs', 'watch']);

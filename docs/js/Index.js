@@ -12,13 +12,7 @@ const Index = React.createClass({
     const {
       host,
       } = global.location;
-    // this._qrcode = new QRCode(this.refs.qrcode, {
-    //   text: `http://${host}/kitchen-sink/`,
-    //   width: 80,
-    //   height: 80,
-    // });
   },
-
   render() {
     const year = new Date().getFullYear();
 
@@ -33,31 +27,20 @@ const Index = React.createClass({
                 scrolling="no"
               ></iframe>
             </div>
-
             <div className="amt-intro">
-              <h1>Amaze UI for 钉钉 移动版<span className="am-badge am-badge-danger am-radius">React</span></h1>
+              <h1>Amaze UI for 钉钉 移动版
+              </h1>
               <p className="amt-version">当前版本：v{__VERSION__} </p>
               <p className="amt-slogan">界面风格与钉钉设计规范完全统一的移动端web组件库 <br/>可以帮助企业开发者，快速开发出钉钉微应用系统</p>
-              { // <div className="amt-ghbtns">
-              //   <iframe
-              //     src="https://ghbtns.com/github-btn.html?user=amazeui&repo=amazeui-touch&type=star&count=true"
-              //     frameBorder="0" scrolling="0" width="120px"
-              //     height="20px"></iframe>
-              //   <iframe
-              //     src="https://ghbtns.com/github-btn.html?user=amazeui&repo=amazeui-touch&type=fork&count=true"
-              //     frameBorder="0" scrolling="0" width="120px"
-              //     height="20px"></iframe>
-              // </div>
-              }
               <div className="am-btn-toolbar">
                 <a
                   className="am-btn am-btn-success am-btn-lg sk-link"
                   href="kitchen-sink"
                 >查看演示</a>
-              <Link className="am-btn am-btn-danger am-btn-sm" to="/docs">开始使用</Link> &nbsp;&nbsp;
+              <Link className="am-btn am-btn-danger am-btn-sm" to="/react">开始使用</Link> &nbsp;&nbsp;
                 <a
                   className="am-btn am-btn-default am-btn-sm"
-                  href="https://github.com/amazeui/amazeui-touch"
+                  href="https://github.com/amazeui/amazeui-dingtalk"
                   target="_blank"
                 >GitHub</a>
               </div>
@@ -75,8 +58,6 @@ const Index = React.createClass({
                   钉群
                 </span>
               </div>
-              { /* <div ref="qrcode" className="ks-qrcode am-hide-sm-only"></div>
-               <p>扫码查看演示</p> */ }
             </div>
           </div>
         </div>
@@ -116,20 +97,6 @@ const Index = React.createClass({
             </div>
           </div>
         </div>
-        { // <div className="amt-subscribe">
-        //   <div className="am-g am-g-fixed">
-        //     <div className="am-u-sm-6">
-        //       2016-8-15 | Amaze UI for 钉钉 v1.0.0发布
-        //     </div>
-        //     <div className="am-u-sm-2 am-u-sm-offset-2">
-        //       <input type="email" className="" placeholder="输入电子邮件" />
-        //     </div>
-        //     <div className="am-u-sm-2">
-        //       <button type="submit" className="am-btn am-btn-default">提交</button>
-        //     </div>
-        //   </div>
-        // </div>
-         }
         <div className="amt-about">
           <div className="am-g am-g-fixed">
             <h1>关于我们</h1>
@@ -142,22 +109,6 @@ const Index = React.createClass({
           <div className="am-g am-g-fixed">
             <div className="am-u-md-4 am-u-md-push-8">
               <ul className="amt-footer-socials">
-                <li>
-                  <a
-                    href="http://amazeui.org/about/contact"
-                    target="_blank"
-                    className="am-icon-qq am-icon-btn"
-                  />
-                </li>
-                <li>
-                  <a
-                    href="http://weibo.com/amazeui"
-                    target="_blank"
-                    className="am-icon-weibo am-icon-btn" />
-                </li>
-                <li>
-                  <span className="am-icon-wechat am-icon-btn" />
-                </li>
               </ul>
             </div>
             <div className="am-u-md-8 am-u-md-pull-4">
