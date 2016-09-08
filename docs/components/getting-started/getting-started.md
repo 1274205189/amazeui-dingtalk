@@ -66,12 +66,12 @@ npm install --save-dev amazeui-dingtalk
 
 **CDN:**
 
-- https://npmcdn.com/amazeui-dingtalk/
+- https://unpkg.com/amazeui-dingtalk/
 
 构建好的文件位于 `dist` 目录下，如 CSS 的链接为：
 
 ```bash
-https://npmcdn.com/amazeui-dingtalk@1.0.0-beta.3/dist/amazeui-dingtalk.min.css
+https://unpkg.com/amazeui-dingtalk@1.0.0-beta.3/dist/amazeui-dingtalk.min.css
 ```
 
 引用其他版本：修改 `@1.0.0-beta.3` 部分为相应版本号即可。
