@@ -50,7 +50,7 @@ const Field = React.createClass({
     // see http://www.w3schools.com/jsref/coll_select_options.asp
     let options = this.getFieldDOMNode().options;
 
-    Array.from(options).forEach((option) => {
+    [].slice.call(options).forEach((option) => {
       if (option.selected) {
         let value = option.getAttribute('value') || option.innerHtml;
 

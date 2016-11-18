@@ -127,7 +127,3 @@ const SearchBar = React.createClass({
 });
 
 export default SearchBar;
-
-var brands = Array.from(document.querySelectorAll('.item-title')).map(function(item) {
-  return item.textContent;
-});
