@@ -1,7 +1,7 @@
 {
   "name": "amazeui-dingtalk",
   "title": "Amaze UI DingTalk",
-  "version": "1.0.0-beta1",
+  "version": "1.0.0-rc.1",
   "description": "Web Components for DingTalk based on React.js",
   "main": "lib/react/index.js",
   "scripts": {
